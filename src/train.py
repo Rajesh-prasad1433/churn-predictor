@@ -43,7 +43,7 @@ if __name__ == "__main__":
     with open("models/encoders.pkl","wb") as f:
         pickle.dump(encodes,f)
     print("Saved model and encoders")
-    with open("models/scales.pkl","wb") as f:
+    with open("models/scaler.pkl","wb") as f:
         pickle.dump(s,f)
-        
+
 
