@@ -10,8 +10,15 @@ encoders=pickle.load(open("models/encoders.pkl","rb"))
 scaler=pickle.load(open("models/scaler.pkl","rb"))
 numeric_col=['tenure','MonthlyCharges','TotalCharges']
 
-@app.route("/predict",methods=["POST"])
+@app.route("/",methods=["GET"])
+def home():
+    return jsonify({
+        "message": "Churn Prediction API is running",
+        "usage": "POST /predict with customer data"
+    })
 
+
+@app.route("/predict", methods=["POST"])
 def predict():
     data=request.get_json()
     df=pd.DataFrame([data])
