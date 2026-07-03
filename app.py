@@ -1,4 +1,4 @@
-from flask import Flask,request,jsonify
+from flask import Flask,request,jsonify,render_template
 import pickle
 import pandas as pd
 
@@ -12,10 +12,7 @@ numeric_col=['tenure','MonthlyCharges','TotalCharges']
 
 @app.route("/",methods=["GET"])
 def home():
-    return jsonify({
-        "message": "Churn Prediction API is running",
-        "usage": "POST /predict with customer data"
-    })
+    return render_template("index.html")
 
 
 @app.route("/predict", methods=["POST"])
